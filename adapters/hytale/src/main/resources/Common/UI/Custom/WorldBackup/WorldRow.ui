@@ -1,0 +1,18 @@
+// A world in the list on the left: its name on the button, its snapshot count and space beside it.
+$C = "../Common.ui";
+
+Group {
+  LayoutMode: Left;
+  Anchor: (Height: 34, Bottom: 3);
+
+  $C.@SmallSecondaryTextButton #Button {
+    @Text = "";
+    FlexWeight: 1;
+  }
+
+  Label #Count {
+    Text: "";
+    Anchor: (Width: 96, Left: 6);
+    Style: (FontSize: 12, TextColor: #8b949e, VerticalAlignment: Center);
+  }
+}

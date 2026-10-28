@@ -1,0 +1,38 @@
+
+{
+  "format": 1,
+  "plugin": "Hledjolf:WorldBackup",
+  "config": "config.json",
+  "sections": [
+    { "id": "space", "label": "Disk space", "description": "Shared by every world on this computer that uses the same backup folder. /worldbackup budget shows whether the other settings fit." },
+    { "id": "often", "label": "How often" },
+    { "id": "many", "label": "How many to keep", "description": "Counts are per world. Older snapshots thin out: every recent one, then one a day, then one a week." },
+    { "id": "milestones", "label": "Milestones", "description": "Snapshots taken at moments worth going back to: game updates and mod changes. Ones you name with /worldbackup milestone are pinned and never deleted automatically." },
+    { "id": "worlds", "label": "Worlds" },
+    { "id": "where", "label": "Where" },
+    { "id": "notices", "label": "Notices" }
+  ],
+  "keys": {
+    "MaxTotalMB": { "label": "Most space for all backups (MB)", "description": "Every world using this backup folder, together. When it's full, the oldest snapshots that aren't pinned or milestones go first.", "section": "space", "type": "int", "min": 100, "max": 10000000, "step": 100, "default": 10000, "restart": false },
+    "MinFreeMB": { "label": "Keep this much free on the drive (MB)", "description": "Below this, scheduled snapshots are skipped. Update and mod-change snapshots are still attempted.", "section": "space", "type": "int", "min": 0, "max": 1000000, "step": 100, "default": 2000, "restart": false },
+    "WarnAtPercent": { "label": "Warn when this full (%)", "description": "Operators are told when the backups pass this share of the space above.", "section": "space", "type": "int", "min": 50, "max": 100, "default": 90, "restart": false },
+    "ScheduledSnapshots": { "label": "Scheduled snapshots", "description": "Off: only milestones and snapshots you take yourself.", "section": "often", "type": "bool", "default": true, "restart": false },
+    "ScheduleMinutes": { "label": "Minutes between snapshots", "description": "Five minutes is the least.", "section": "often", "type": "int", "min": 5, "max": 10080, "step": 5, "default": 60, "restart": false },
+    "SkipUnchanged": { "label": "Skip if nothing changed", "description": "Don't take a scheduled snapshot of a world nobody touched, so a quiet night doesn't push out yesterday's snapshots.", "section": "often", "type": "bool", "default": true, "restart": false },
+    "OnlyWhilePlayersOnline": { "label": "Only while players are on", "description": "Scheduled snapshots only while someone is playing, plus one when the last player leaves.", "section": "often", "type": "bool", "default": true, "restart": false },
+    "MaxCopyMBps": { "label": "Speed limit while playing (MB/s)", "description": "Keeps a big snapshot from causing lag. 0: no limit. Snapshots before the world loads ignore it.", "section": "often", "type": "int", "min": 0, "max": 10000, "step": 10, "default": 100, "restart": false },
+    "KeepScheduled": { "label": "Recent snapshots to keep", "description": "Per world, every one. With one an hour, 24 is a day of play.", "section": "many", "type": "int", "min": 1, "max": 10000, "default": 24, "restart": false },
+    "KeepDaily": { "label": "Then one a day, for this many days", "description": "Per world. 0: none.", "section": "many", "type": "int", "min": 0, "max": 3650, "default": 7, "restart": false },
+    "KeepWeekly": { "label": "Then one a week, for this many weeks", "description": "Per world. 0: none.", "section": "many", "type": "int", "min": 0, "max": 520, "default": 4, "restart": false },
+    "KeepShutdown": { "label": "Shutdown snapshots to keep", "description": "Per world. Taken at every clean shutdown: the last copy known to be good.", "section": "many", "type": "int", "min": 1, "max": 100, "default": 2, "restart": false },
+    "PreUpdateSnapshot": { "label": "Snapshot before a game update", "description": "Taken before a new game version first opens the world, since it may upgrade the world so older versions can't open it.", "section": "milestones", "type": "bool", "default": true, "restart": false },
+    "ModChangeSnapshot": { "label": "Snapshot when mods change", "description": "Taken before the world first opens with a mod added, removed or updated.", "section": "milestones", "type": "bool", "default": true, "restart": false },
+    "KeepMilestones": { "label": "Update and mod-change snapshots to keep", "description": "Per world, newest first. 0 keeps them all, which can fill the space above over time. Pinned snapshots never count and are never deleted.", "section": "milestones", "type": "int", "min": 0, "max": 1000, "default": 3, "restart": false },
+    "ExcludeWorlds": { "label": "Worlds not to back up", "description": "Servers: world names, separated by commas.", "section": "worlds", "type": "string", "default": "", "restart": false },
+    "BackupDir": { "label": "Backup folder", "description": "Empty: one shared folder for this computer. Another drive is safer.", "section": "where", "type": "string", "default": "", "restart": true },
+    "IncludePlayers": { "label": "Include player data", "description": "Servers: inventories and positions in universe/players.", "section": "where", "type": "bool", "default": true, "restart": false },
+    "AnnounceToOps": { "label": "Tell operators", "description": "A chat line when a snapshot fails, or when the space settings don't fit.", "section": "notices", "type": "bool", "default": true, "restart": false },
+    "GeneratedSidecarHash": { "hidden": true },
+    "Worlds": { "hidden": true }
+  }
+}

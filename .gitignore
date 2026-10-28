@@ -1,0 +1,9 @@
+build/
+.gradle/
+run/
+release/
+*.log
+.idea/
+.vs/
+Thumbs.db
+desktop.ini

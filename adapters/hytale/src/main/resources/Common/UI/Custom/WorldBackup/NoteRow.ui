@@ -1,0 +1,9 @@
+// A line of text in a list: "No snapshots yet", or why a list is empty.
+Group {
+  Anchor: (Height: 26);
+
+  Label #Text {
+    Text: "";
+    Style: (FontSize: 13, TextColor: #8b949e, VerticalAlignment: Center, Wrap: true);
+  }
+}

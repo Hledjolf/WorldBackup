@@ -1,0 +1,13 @@
+{
+  "Group": "Hledjolf",
+  "Name": "WorldBackup",
+  "Version": "${version}",
+  "Description": "Backs up your worlds before an update can change them, on a schedule, and on demand. One-click restore that can be undone.",
+  "Authors": [
+    { "Name": "Hledjolf" }
+  ],
+  "Main": "worldbackup.WorldBackupPlugin",
+  "ServerVersion": "*",
+  "IncludesAssetPack": true,
+  "Dependencies": {}
+}

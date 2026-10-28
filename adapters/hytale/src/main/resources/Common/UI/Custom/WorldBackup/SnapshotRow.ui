@@ -1,0 +1,20 @@
+// A snapshot: a small Pick button, then its time, trigger, build and sizes, and its label or mod changes.
+// The text is a label beside the button, so it keeps its case.
+$C = "../Common.ui";
+
+Group {
+  LayoutMode: Left;
+  Anchor: (Height: 30, Bottom: 2);
+
+  $C.@SmallSecondaryTextButton #Button {
+    @Text = "Pick";
+    @Anchor = (Width: 70);
+  }
+
+  Label #Text {
+    Text: "";
+    FlexWeight: 1;
+    Padding: (Left: 8);
+    Style: (FontSize: 13, TextColor: #c9d1d9, VerticalAlignment: Center);
+  }
+}

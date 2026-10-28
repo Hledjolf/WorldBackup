@@ -1,0 +1,132 @@
+// WorldBackup: worlds on the left (here, elsewhere on this computer, deleted), the chosen world's snapshots on
+// the right, then the actions, each button with its command beside it (buttons render in capitals).
+// Rows are appended into #Nav and #Snapshots; the actions into #Actions; the confirmation bar into #ConfirmBox.
+$C = "../Common.ui";
+
+$C.@PageOverlay {}
+
+$C.@Container {
+  Anchor: (Width: 1180, Height: 760);
+
+  #Title {
+    Group {
+      $C.@Title {
+        @Text = "World Backup";
+      }
+    }
+  }
+
+  #Content {
+    LayoutMode: Left;
+
+    Group #Left {
+      Anchor: (Width: 330);
+      LayoutMode: Top;
+      Padding: (Right: 12);
+
+      Label #StoreLine {
+        Text: "";
+        Anchor: (Height: 22, Bottom: 4);
+        Style: (FontSize: 13, TextColor: #878e9c, VerticalAlignment: Center);
+      }
+
+      Group #Nav {
+        FlexWeight: 1;
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+      }
+    }
+
+    Group #Right {
+      FlexWeight: 1;
+      LayoutMode: Top;
+
+      Label #WorldTitle {
+        Text: "";
+        Anchor: (Height: 30);
+        Style: (FontSize: 22, RenderBold: true, VerticalAlignment: Center);
+      }
+
+      Label #WorldMeta {
+        Text: "";
+        Anchor: (Height: 20, Bottom: 4);
+        Style: (FontSize: 13, TextColor: #878e9c, VerticalAlignment: Center);
+      }
+
+      Group #Banner {
+        Visible: false;
+        Anchor: (Height: 40, Bottom: 4);
+        Padding: (Horizontal: 10, Vertical: 2);
+        Background: #1f4d7a(0.6);
+
+        Label #BannerText {
+          Text: "";
+          Style: (FontSize: 14, TextColor: #d6e8ff, VerticalAlignment: Center, Wrap: true);
+        }
+      }
+
+      Group #Pending {
+        Visible: false;
+        LayoutMode: Left;
+        Anchor: (Height: 40, Bottom: 4);
+        Padding: (Horizontal: 10, Vertical: 2);
+        Background: #8a6420(0.55);
+
+        Label #PendingText {
+          Text: "";
+          FlexWeight: 1;
+          Style: (FontSize: 14, TextColor: #ffe2a8, VerticalAlignment: Center, Wrap: true);
+        }
+
+        $C.@SmallSecondaryTextButton #PendingCancel {
+          @Text = "Cancel";
+          @Anchor = (Width: 110, Top: 4, Left: 8);
+        }
+      }
+
+      Label #ListHeader {
+        Text: "";
+        Anchor: (Height: 20);
+        Style: (FontSize: 13, RenderUppercase: true, TextColor: #7a9cc6, VerticalAlignment: Center);
+      }
+
+      Group #Snapshots {
+        FlexWeight: 1;
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+        Padding: (Right: 8);
+      }
+
+      Label #Selected {
+        Text: "";
+        Anchor: (Height: 24, Top: 4);
+        Style: (FontSize: 14, TextColor: #c9d1d9, VerticalAlignment: Center);
+      }
+
+      Group #ConfirmBox {
+        Visible: false;
+        Anchor: (Height: 50, Top: 4);
+        LayoutMode: Top;
+      }
+
+      Group #Actions {
+        Anchor: (Height: 176, Top: 4);
+        LayoutMode: Top;
+      }
+
+      Label #Output {
+        Text: "";
+        Anchor: (Height: 44, Top: 2);
+        Style: (FontSize: 13, TextColor: #e8a93b, VerticalAlignment: Center, Wrap: true);
+      }
+
+      Label #Status {
+        Text: "";
+        Anchor: (Height: 36);
+        Style: (FontSize: 13, TextColor: #8b949e, VerticalAlignment: Center, Wrap: true);
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

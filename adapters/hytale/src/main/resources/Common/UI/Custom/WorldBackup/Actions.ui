@@ -1,0 +1,118 @@
+// The actions, two to a row, each button with its command beside it as a label (buttons render in
+// capitals; commands keep their case). The milestone row has the name field. Re-appended whenever the
+// chosen world or snapshot changes, so the bindings carry them.
+$C = "../Common.ui";
+
+Group {
+  LayoutMode: Top;
+  Anchor: (Height: 174);
+
+  Group {
+    LayoutMode: Left;
+    Anchor: (Height: 40, Bottom: 4);
+
+    $C.@TextButton #NowButton {
+      @Text = "Back up now";
+      @Anchor = (Width: 170);
+    }
+
+    Label #NowCmd {
+      Text: "";
+      FlexWeight: 1;
+      Padding: (Left: 8);
+      Style: (FontSize: 13, TextColor: #8b949e, VerticalAlignment: Center);
+    }
+
+    $C.@SecondaryTextButton #BudgetButton {
+      @Text = "Budget";
+      @Anchor = (Width: 150);
+    }
+
+    Label #BudgetCmd {
+      Text: "";
+      FlexWeight: 1;
+      Padding: (Left: 8);
+      Style: (FontSize: 13, TextColor: #8b949e, VerticalAlignment: Center);
+    }
+  }
+
+  Group {
+    LayoutMode: Left;
+    Anchor: (Height: 40, Bottom: 4);
+
+    $C.@TextField #Label {
+      @Anchor = (Width: 260);
+      PlaceholderText: "Milestone name: before the castle";
+    }
+
+    $C.@SecondaryTextButton #MilestoneButton {
+      @Text = "Milestone";
+      @Anchor = (Width: 150, Left: 6);
+    }
+
+    Label #MilestoneCmd {
+      Text: "";
+      FlexWeight: 1;
+      Padding: (Left: 8);
+      Style: (FontSize: 13, TextColor: #8b949e, VerticalAlignment: Center);
+    }
+  }
+
+  Group {
+    LayoutMode: Left;
+    Anchor: (Height: 40, Bottom: 4);
+
+    $C.@SecondaryTextButton #RestoreButton {
+      @Text = "Restore";
+      @Anchor = (Width: 150);
+    }
+
+    Label #RestoreCmd {
+      Text: "";
+      FlexWeight: 1;
+      Padding: (Left: 8);
+      Style: (FontSize: 13, TextColor: #8b949e, VerticalAlignment: Center);
+    }
+
+    $C.@SecondaryTextButton #PinButton {
+      @Text = "Pin";
+      @Anchor = (Width: 150);
+    }
+
+    Label #PinCmd {
+      Text: "";
+      FlexWeight: 1;
+      Padding: (Left: 8);
+      Style: (FontSize: 13, TextColor: #8b949e, VerticalAlignment: Center);
+    }
+  }
+
+  Group {
+    LayoutMode: Left;
+    Anchor: (Height: 40);
+
+    $C.@SecondaryTextButton #VerifyButton {
+      @Text = "Verify";
+      @Anchor = (Width: 150);
+    }
+
+    Label #VerifyCmd {
+      Text: "";
+      FlexWeight: 1;
+      Padding: (Left: 8);
+      Style: (FontSize: 13, TextColor: #8b949e, VerticalAlignment: Center);
+    }
+
+    $C.@SecondaryTextButton #ExportButton {
+      @Text = "Export";
+      @Anchor = (Width: 150);
+    }
+
+    Label #ExportCmd {
+      Text: "";
+      FlexWeight: 1;
+      Padding: (Left: 8);
+      Style: (FontSize: 13, TextColor: #8b949e, VerticalAlignment: Center);
+    }
+  }
+}

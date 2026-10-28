@@ -1,0 +1,9 @@
+// A heading in the world list: "Here", "Other worlds on this computer", "Deleted worlds".
+Group {
+  Anchor: (Height: 26, Top: 6);
+
+  Label #Title {
+    Text: "";
+    Style: (FontSize: 13, RenderUppercase: true, TextColor: #7a9cc6, VerticalAlignment: Center);
+  }
+}

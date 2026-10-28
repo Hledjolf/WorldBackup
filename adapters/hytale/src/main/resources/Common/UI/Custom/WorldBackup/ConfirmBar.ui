@@ -1,0 +1,25 @@
+// Before a restore is staged: what will happen, then Confirm and Cancel.
+$C = "../Common.ui";
+
+Group {
+  LayoutMode: Left;
+  Anchor: (Height: 48);
+  Padding: (Horizontal: 10, Vertical: 2);
+  Background: #8a6420(0.55);
+
+  Label #Text {
+    Text: "";
+    FlexWeight: 1;
+    Style: (FontSize: 13, TextColor: #ffe2a8, VerticalAlignment: Center, Wrap: true);
+  }
+
+  $C.@TextButton #ConfirmButton {
+    @Text = "Confirm";
+    @Anchor = (Width: 150, Left: 8);
+  }
+
+  $C.@SecondaryTextButton #CancelButton {
+    @Text = "Cancel";
+    @Anchor = (Width: 120, Left: 8);
+  }
+}
